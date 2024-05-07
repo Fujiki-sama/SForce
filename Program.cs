@@ -22,12 +22,12 @@
 
                 var userURL = $"https://api.openweathermap.org/data/2.5/weather?q={city_name}&appid={api_key}&units=metric";
 
-                var weatherResponse = client.GetStringAsync(userURL).Result;
+                var weatherResponse = client.GetStringAwait(userURL).Result;
 
                 var formattedResponseMain = JObject.Parse(weatherResponse).GetValue("main").ToString();
                 var formattedResponseTemp = JObject.Parse(formattedResponseMain).GetValue("temp").ToString();
 
-                Console.WriteLine($"\n{formattedResponseTemp} degrees Celcius.");
+                Console.WriteLine($"\n{formattedResponseTemp} degrees Celsius.");
             }
         }
     }
